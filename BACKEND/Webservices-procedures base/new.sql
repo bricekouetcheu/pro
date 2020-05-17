@@ -15,7 +15,9 @@ END
 
 
 //cette procedures renvoit le fichier html
-
+	
+                             
+                             
 
 create PROCEDURE "DBA"."http_getpage"( in url CHAR(255) )
 
@@ -30,19 +32,28 @@ create PROCEDURE "DBA"."http_getpage"( in url CHAR(255) )
     RESULT( js LONG  VARCHAR  ) 
    BEGIN
 	 call sa_set_http_header('content-type','text/javascript');
-        SELECT  xp_read_file(getPath()+ 'js\'+ url) ;
+        SELECT  xp_read_file(getPath()+'js/' +url);
     END
 	
-	
-	
-	
-	ALTER PROCEDURE "DBA"."http_getCSS"(in url char(255))
+                             
+                             
+   //renvoi le fichier CSS                          
+                             
+ALTER PROCEDURE "DBA"."http_getCSS"(in url char(255))
     RESULT( css LONG  VARCHAR  ) 
 BEGIN
 	 call sa_set_http_header('content-type','text/css');
-        SELECT  xp_read_file(getPath()+ 'css\'+ url) ;
+        SELECT  xp_read_file(getPath()+ 'css/'+ url) ;
 END
 	
+    
+                             
+ALTER PROCEDURE "DBA"."http_getJS"(in url char(255))
+    RESULT( css LONG  VARCHAR  ) 
+BEGIN
+	 call sa_set_http_header('content-type','text/javascript');
+        SELECT  xp_read_file(getPath()+ 'js/'+ url) ;
+END
 
 	
 CREATE SERVICE "css" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call dba.http_getCSS(:url);	
@@ -52,6 +63,9 @@ CREATE SERVICE "page" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GE
 
 CREATE SERVICE "js" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call dba.http_getJS(:url);
 	
+CREATE SERVICE "ROOT" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call dba.http_getJS(:url);	
+	
+
 	
 	
 	

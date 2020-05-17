@@ -1,0 +1,86 @@
+/*html*/
+body{
+	padding:0;
+	margin:0;
+	 background-color : bisque;
+	background-size:cover;
+	front-family:Tohoma, Geneva, Verdana, Sans-serif;
+	background-position: center;
+}
+.login{
+	 width:320px;
+	 height:450px;
+	
+	 color:#fff;
+	 top:50%;
+	 left:50%;
+	 border:1px solid black;
+	 position:absolute;
+	 transform:translate(-50%, -50%);
+	box-sizing:border-box;
+	padding:70px 30px;
+	text-align:center;
+	
+}
+.avatar{
+	width:100px;
+	height:100px;
+	border-radius:50%;
+	position:absolute;
+	top:-50px;
+	left: calc(50% - 50px);
+}
+h1{
+	margin:0;
+	padding:0 0 20px;
+	text-align:center;
+	front-size:22px;
+	text-color:#000;
+}
+.login p{
+	margin:0;
+	padding:0;
+	front-weight:bold;
+	color:#000;
+	text-align:left;
+}
+.login input{
+	width:100%;
+	margin-bottom:20px;
+}
+.login input[type="text"]{
+	border:none;
+	border-bottom:1px solid #fff;
+	background: transparent;
+	outline:none;
+	height:40px;
+	color:#fff;
+	front-size:16px;
+}
+ .login input[type="radio"] .login input[type="password"]{
+	border:none;
+	border-bottom:1px solid #fff;
+	background: transparent;
+	outline:none;
+	height:40px;
+	color:#fff;
+	front-size:16px;
+}
+select {
+    border:none;
+	online:none;
+	height:40px;
+    width: 20px;
+}
+
+ .login button{
+	border:none;
+	online:none;
+	height:40px;
+}
+
+.login button[type="submit"]:hover{
+	cursor: pointer;
+	background:#39dc79;
+	color:#000
+}

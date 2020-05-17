@@ -1,0 +1,112 @@
+body
+{
+    text-align: center;
+    font-size: 13px;
+    font-family: Comic Sans MS ;
+    background-color: cadetblue;
+ background-position: center;
+   margin-top: 50px;
+}
+
+.main
+{
+ 
+  background-color: rgba(0, 0, 0, 0.5);
+    width: 800px;
+    margin: auto;
+    height: 700px;
+   
+}
+
+legend{
+    border-style: solid;
+    font-size: 18px;
+    background-color: antiquewhite
+}
+
+#formulairePatient{
+    padding: 10px;
+    padding-top: 15px;
+}
+
+fieldset{
+    margin-left: 25px;
+    margin-top: 25px;
+    padding-top: 25px;
+    padding-left: 30px;
+}
+
+label{
+    font-size: 15px;
+    color: white;
+}
+
+.formClass{
+    position: relative;
+    left: 80px;
+    top:-2px;
+    line-height: 20px;
+    border-radius: 6px;
+    padding: 0 22px;
+    background-color: bisque;
+    
+}
+
+#boutonsubmit{
+    margin-left: 25px;
+    margin-top: 20px;
+    
+}
+
+
+
+#boutonsubmit , #idboutonParHopitaux , #Casdesville , #idboutonTotal {
+    background-color: bisque;
+    border: none;
+    border-radius: 5px;
+    font-size:15px;
+    padding: 8px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+    cursor: pointer;
+    outline: none;
+    margin-left: 20px;
+    
+    
+    
+}
+
+
+#boutonsubmit:hover , #idboutonParHopitaux:hover , #Casdesville:hover , #idboutonTotal:hover{
+    transform: scale(1.1);
+}
+
+#messageTotal{
+     border-collapse: collapse;
+    
+}
+
+#messageHopitaux, table{
+    border-collapse: collapse;
+    text-align: center;
+    
+}
+
+#messageHopitaux,th,td{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+#messageVille , table{
+    border-collapse: collapse;
+   text-align: center;
+}
+
+#messageVille ,th,td{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+     
+}
+

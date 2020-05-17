@@ -87,6 +87,8 @@ function soumettre(idpatient)
     xhr.send();
 }
 
+
+//fonctionnalités
 document.getElementById("idboutonTotal").addEventListener('click',afficherNombreTotal);
 
 function afficherNombreTotal(){
@@ -97,7 +99,7 @@ function afficherNombreTotal(){
         afficherResultat(rep,"messageTotal");
         
         function afficherResultat(obj , id){
-            let valeur ="<p> le nombre total d'infecte s'eleve a "+obj[0].nombresTotal+"</p>"
+            let valeur ="<h2> le nombre total d'infecte s'eleve a "+obj[0].nombresTotal+"</h2>"
             document.getElementById(id).innerHTML=valeur;
             
            
@@ -108,9 +110,13 @@ function afficherNombreTotal(){
     xhr.send();
 }
 
-document.getElementById("idboutonParHopitaux").addEventListener('click', afficherTotalParVille)
 
-function afficherTotalParVille(){
+
+
+
+document.getElementById("idboutonParHopitaux").addEventListener('click', afficherTotalParHopitaux)
+
+function afficherTotalParHopitaux(){
     let xhr = new XMLHttpRequest();
     xhr.open ("get" , 'http://localhost:200/triHopitaux' , true);
     xhr.onload = function(){
@@ -145,6 +151,67 @@ function afficherTotalParVille(){
     
     xhr.send();
 }
+
+
+
+
+document.getElementById("triSurVilles").addEventListener('submit', afficherTotalParVille);
+
+function afficherTotalParVille(e){
+    
+    e.preventDefault();
+    
+    let recupVille= document.getElementById("casVille");
+    let formVille =  document.getElementById("triSurVilles");
+    envoyerDemande(recupVille.value , formVille.symptome.value);
+}
+
+function envoyerDemande(villeTri,symptomes){
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', "http://localhost:200/triVille?ville="+villeTri+"&sympt="+symptomes , true);
+    xhr.onload=function (){
+        
+         console.log(xhr.responseText);
+        
+        let rep = JSON.parse(xhr.responseText);
+        
+        if(rep.length==0){
+             document.getElementById("messageVille").innerHTML='<p> pas de resultat </p>';
+        }
+        
+        else{
+            traiterResultat(rep);
+        }
+       
+        
+        
+        function  traiterResultat(obj){
+            
+                let tableau = "<table><thead><tr>";
+            let attributs = Object.keys(obj[0]);
+            for(let i in attributs){
+                tableau+="<th>"+attributs[i]+"</th>";
+                
+                }
+                tableau+='</tr></thead><tbody>';
+            for(let i in obj){
+                tableau+="<tr>";
+                for(let j in obj[i]){
+                    tableau+="<td>"+obj[i][j]+"</td>";
+                }
+                tableau+="</tr>";
+            }
+            tableau+="</tbody></table>";
+            document.getElementById("messageVille").innerHTML=tableau;
+
+            
+        }
+        
+    }
+    
+    xhr.send();
+}
+
 
 
 

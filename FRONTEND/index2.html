@@ -2,65 +2,73 @@
     <head>
         
         <title> accueil</title>
-       
+        <link rel="stylesheet" href="css/index2.css">
         <meta charset="utf-8">
+        
     </head>
 	<body>
-            <h1>BIENVENUE</h1>
+        <header> 
+        <div id="welcome">
+            
+             <h1 >BIENVENUE</h1>
+         </div>
+                
         
+        </header>
         
-		<form id="formulairePatient" >
+        <div class="main">
+            <form id="formulairePatient" >
 			<fieldset>
 				<legend> FORMULAIRE D'INSERTION DES PATIENTS </legend>
 				<label for="idP"> Numero national: </label>
-				<input id="idP" name="numeroNational" type="text" value="" required><br>
+				<input id="idP" class="formClass" name="numeroNational" type="text" value="" required><br><br>
              <!--nom-->
 				<label for="nom"> Nom du patient: </label>
-				<input id="nom" name="nomPatient" type="text" value="" required><br>
+				<input id="nom" name="nomPatient" class="formClass" type="text" value="" required><br><br>
 			<!--prenom-->
 				<label for="prenom" > Prenom du patient: </label>
-				<input id="prenom" name="prenomPatient" type="text" value="" required><br>
+				<input id="prenom" name="prenomPatient" class="formClass" type="text" value="" required><br><br>
                 
                   <!--sexe-->
 				<input id="genreFemme" type="radio" name="genre" value="F" required>
 				<label for="genreFemme"> Madame</label><br>
 				<input id="genreHomme" type="radio" name="genre" value="M" required>
-				<label for="genreHomme"> Monsieur</label><br>
+				<label for="genreHomme"> Monsieur</label><br><br>
                 
                 <!--date de naissance-->
 				<label for="naissance">Date de naissance : </label>                                    
-				<input id="naissance" name="dateNaissance" type="date" required> <br>
+				<input id="naissance" class="formClass" name="dateNaissance" type="date" required> <br><br>
                 
                 <!--date admission-->
 				<label for="dateAd"> Date d'admission du patient: </label>
-				<input id="dateAd" name="dateAdmission" type="date" value="" required ><br>
+				<input id="dateAd" class="formClass" name="dateAdmission" type="date" value="" required ><br><br>
 			     
                 <!--numero-->
 				<label for="numero"> Numero GSM:</label>
-				<input id="numP" type="text" name="numeroGsm" value="" required><br>
+				<input id="numP"  class="formClass" type="text" name="numeroGsm" value="" required><br><br>
 			
                 	
 			<!--symptome-->
 				<label for="symptome"> Le patient presente t-il des symptomes de la maladie?:</label><br>
-				<input id="ouiS" type="radio" name="symptome" value="oui" required>
+				<input id="ouiS" type="radio"  name="symptome" value="oui" required>
 				<label for="symptomeOui"> Oui </label><br>
-				<input id="nonS" type="radio" name="symptome" value="non" required>
-				<label for="symptomeNon"> Non </label><br>
+				<input id="nonS"  type="radio" name="symptome" value="non" required>
+				<label for="symptomeNon"> Non </label><br><br>
                 
 			
 			<!--ville-->
 				<label for="ville"> Ville du patient </label>
-				<select id="idville">
+				<select id="idville" class="formClass">
 					<option value = "Nmr"> Namur </option>
 					<option value = "chl"> Charleroi </option>
 					<option value = "bx"> Bruxelles </option>
 					<option value = "avr"> Anvers </option>
 					<option value = "lg"> Liege </option>
-				</select><br>
+				</select><br><br>
                 
 			<!--hopital-->
 				<label for="idhopital"> Nom de l'hopital:</label>
-				<select id="hop">
+				<select id="hop" class="formClass">
 					<option value ="HOP01"> clinique st luc</option>
 					<option value ="HOP04"> Clinique St Luc bruxelles </option>
 					<option value = "HOP02"> CHU Godinne </option>
@@ -71,37 +79,44 @@
 					<option value ="HOP08"> CHU Liege </option>
 					<option value = "HOP09"> Arseus Medical </option>
 					<option value ="HOP010" > Hopital Universitaire d'Anvers </option>
-				</select><br>
+				</select><br><br>
                 
-			
-
-			<!--button-->
-				<input id="bouton" type="submit" value="INSERER LE PATIENT">
 
 			</fieldset>
+                
+      <!--button-->
+				<input id="boutonsubmit" type="submit" value="INSERER LE PATIENT">
 		</form>
+            </div><br><br><br>
+           
+        
+		
         
                 <!-- ***** FONCTIONNALITES ***** -->
 	
     <!--nombre de cas total -->
     <div id="total">
-         <p>  Nombres total d'infectés <button id="idboutonTotal" > click!</button></p>
+        <label> Nombres total d'infectés <button id="idboutonTotal" > click!</button> </label>
+
         <div id="messageTotal"></div>
-    </div><br>
+    </div><br><br>
     
         
      <div id="totalParHopital">
-         <p>  Nombres total d'infectés par hopital <button id="idboutonParHopitaux"  > click!</button></p>
+         <label>  Nombres total d'infectés par hopital    <button id="idboutonParHopitaux"  > click!</button></label><br><br>
             <div id="messageHopitaux"></div>
-    </div><br> 
+    </div><br> <br>
         
  
 
     <!-- nombres de cas par ville -->
     <div id="nombreville">
-        <p>Evolution en fonction des villes</p>
-     <label for="dateAd"> selectionner la ville </label>.
-     <select id="casVille">
+       
+        <label><h2>Evolution en fonction des villes</h2></label><br><br>
+        <form id ="triSurVilles">
+        
+        <label for="dateAd"> selectionner la ville </label>
+        <select id="casVille" >
 					<option value = "Nmr"> Namur </option>
 					<option value = "chl"> Charleroi </option>
 					<option value = "bx"> Bruxelles </option>
@@ -111,10 +126,13 @@
         <input id="ouiVil" type="radio" name="symptome" value="oui" required>
         <label for="symptomeOui"> symptomatique </label><br>
         <input id="nonVil" type="radio" name="symptome" value="non" required>
-        <label for="symptomeNon">asymptomatique </label><br>
-         <input id="Cas ville" type="submit" value="click!" >
+        <label for="symptomeNon">asymptomatique </label><br><br>
+            
+         <input id="Casdesville" type="submit" value="click!" >
         
-        <div id="message"> </div>
+        </form>
+    
+        <div id="messageVille"> </div>
     </div><br> <br> 
      <script type="application/javascript" src="js/index2.js"></script>
     </body>

@@ -2,27 +2,29 @@
 	<head> 
 		<title>login</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="">
+		<link rel="stylesheet" type="text/css" href="css/login.css" >
 		<script type="text/javascript" src="js/login.js"></script>
 	</head>
-	
 	<body>
-		<h1>BIENVENUE</h1>
+		<div class="login">
+		<img src="img/image2.png" class="avatar" >
+		<h1>Login Here</h1>
 		<form id="idlogin">
-			<fieldset>
-				<label for="userName"> User Name:</label>
-				<input id="iduserName" name="userName" type="text"  ><br><br>
-				<label for="password"> Password:</label>
-				<input id="idpassword" name="passWord"  type="password"> <br><br>
-              
-             <input type="submit", id="idsoumettre" value="se connecter">
-                <input type="click", id="idInscription" value="incription">
+			
+				<p> User Name:</p>
+				<input id="iduserName" name="userName" type="text" required placeholder="Enter Username" >
+				<p> Password:</p>
+				<input id="idpassword" name="passWord"  type="password" required placeholder="Enter Password"> <br><br>
+                <button type="submit"><a href="http://localhost:200/page?url=index2"> Se connecter </a></button>
+                <button type="submit"><a href="http://localhost:200/page?url=inscription"> Incription </a></button><br><br>
+				
 				<div>
                    
 				</div>
-			</fieldset>
 		</form>
         <div id="idcorps"> </div>
+		</div>
+		
 	</body>
 </html>
 				
